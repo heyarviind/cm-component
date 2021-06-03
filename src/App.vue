@@ -26,6 +26,10 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 .text-sm {
   font-size: 12px;
   color: #393c40;
