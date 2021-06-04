@@ -22,7 +22,7 @@ export default {
   },
   data: () => ({
     maxRating: 5,
-    arr: [],
+    ratingHelper: [],
   }),
   created() {
     this.hydrateRating();
@@ -33,27 +33,30 @@ export default {
         const decimalValue = this.value - Math.floor(this.value);
         let normalValue = Math.floor(this.value);
 
-        // make the arr empty if the value changes in storybook
-        this.arr = [];
+        // make the ratingHelper empty if the value changes in storybook
+        this.ratingHelper = [];
 
         for (let i = 1; i <= normalValue; i++) {
-          this.arr.push(1);
+          this.ratingHelper.push(1);
           if (i == normalValue && decimalValue) {
-            this.arr.push(decimalValue);
+            this.ratingHelper.push(decimalValue);
           }
         }
+      } else {
+        this.ratingHelper = [];
       }
     },
     getState(index) {
-      if (this.arr[index] == 1) return "filled";
-      if (this.arr[index] > 0 && this.arr[index] < 1) return "half";
-      if (!this.arr[index]) return "empty";
+      if (this.ratingHelper[index] == 1) return "filled";
+      if (this.ratingHelper[index] > 0 && this.ratingHelper[index] < 1)
+        return "half";
+      if (!this.ratingHelper[index]) return "empty";
 
       return "empty";
     },
   },
   // need to watch the rating value, as this can be changed in storybook
-  // this rating component is dependent on arr variable so it has to be
+  // this rating component is dependent on ratingHelper variable so it has to be
   // updated on every prop change
   watch: {
     value: function() {
