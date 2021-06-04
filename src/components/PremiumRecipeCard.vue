@@ -9,8 +9,10 @@
     <div class="header">
       <div class="content">
         <span style="text-align: right;">
-          <img v-if="!hovered" src="../assets/heart-outline.svg" />
-          <img v-else src="../assets/heart-filled.svg" />
+          <span class="heart-icon">
+            <img v-if="!hovered" src="../assets/heart-outline.svg" />
+            <img v-else src="../assets/heart-filled.svg" />
+          </span>
         </span>
         <span
           ><Badge
@@ -27,10 +29,10 @@
 
       <span>
         <Rating :value="rating" />
-        <span class="ratingText">{{ totalRatings }} ratings</span>
+        <span class="rating-text">{{ totalRatings }} ratings</span>
       </span>
 
-      <div class="moreInfo">
+      <div class="more-info">
         <span>
           <Info icon="clock" :title="formatDuration(duration)" />
           <Info icon="calories" :title="getEnergyTitle(energy, energyUnit)" />
@@ -180,7 +182,12 @@ a.card {
   position: absolute;
   width: 100%;
   height: 100%;
-  padding: 16px;
+  padding: 8px;
+}
+
+.card .header .content .heart-icon {
+  padding: 6px;
+  display: block;
 }
 
 .card .header .image {
@@ -209,7 +216,7 @@ a.card {
   justify-content: space-between;
 }
 
-.card .footer .ratingText {
+.card .footer .rating-text {
   font-size: 14px;
   color: #1ca677;
   margin-left: 8px;
@@ -219,14 +226,14 @@ a.card {
   font-size: 18px;
   line-height: 20px;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   -webkit-line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.card .footer .moreInfo {
+.card .footer .more-info {
   margin-top: 4px;
   display: flex;
   justify-content: space-between;
