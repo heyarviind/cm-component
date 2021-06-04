@@ -58,6 +58,6 @@ export const Default = () => ({
       :protein="protein"
       :fats="fats"
       
-      @click="action" />`,
+      @click.native="action" />`,
   methods: { action: action("clicked") },
 });
