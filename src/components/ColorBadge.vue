@@ -1,7 +1,7 @@
 <template>
   <span class="protien">
     <span>
-      <span :class="`dot ${color}`"></span>
+      <span :class="`dot ${type}`"></span>
     </span>
     <span class="text-sm">{{ value }}</span>
   </span>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  props: ["color", "value"],
+  props: ["type", "value"],
 };
 </script>
 
@@ -28,15 +28,15 @@ export default {
   margin-right: 4px;
 }
 
-.dot.red {
+.dot.carbs {
   background-color: #f94642;
 }
 
-.dot.blue {
+.dot.protein {
   background-color: #3177bb;
 }
 
-.dot.yellow {
+.dot.fats {
   background-color: #fda120;
 }
 </style>
